@@ -28,7 +28,10 @@ public class SpinePlayer : MonoBehaviour
 	protected virtual void Update()
 	{
 		if (_isAutoUpdate)
+		{
 			SkeletonAnimation.Tick(Time.deltaTime);
+			Debug.Log(SkeletonAnimation.GetTime());
+		}
 		else
 			SkeletonAnimation.RefreshByNormalized(_normalized);
 	}

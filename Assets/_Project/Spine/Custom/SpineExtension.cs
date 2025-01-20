@@ -15,7 +15,7 @@ namespace Spine.Unity
 			skeletonAnimation.AnimationState.GetCurrent(0)?.AnimationEnd ?? -1;
 
 		public static float GetTime(this SkeletonAnimation skeletonAnimation) =>
-			skeletonAnimation.AnimationState.GetCurrent(0)?.trackTime ?? 0;
+			skeletonAnimation.AnimationState.GetCurrent(0)?.AnimationTime ?? 0;
 
 		public static float GetNormalized(this SkeletonAnimation skeletonAnimation) =>
 			Mathf.Clamp(skeletonAnimation.GetTime() / skeletonAnimation.GetDuration(), 0, 0.98f);
