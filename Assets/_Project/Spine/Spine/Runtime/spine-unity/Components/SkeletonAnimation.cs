@@ -267,7 +267,7 @@ namespace Spine.Unity
 				_OnAnimationRebuild(this);
 		}
 
-		public virtual void Refresh(float deltaTime)
+		public virtual void InternalRefresh(float deltaTime)
 		{
 			state.Update(deltaTime);
 			skeleton.Update(deltaTime);

@@ -63,7 +63,7 @@ namespace Spine.Unity
 		public static void Refresh(this SkeletonAnimation skeletonAnimation)
 		{
 			Profiler.BeginSample("Spine.Refresh");
-			skeletonAnimation.Refresh(0);
+			skeletonAnimation.InternalRefresh(0);
 			skeletonAnimation.Render(0);
 			Profiler.EndSample();
 		}
@@ -72,7 +72,7 @@ namespace Spine.Unity
 		{
 			Profiler.BeginSample("Spine.Tick");
 			skeletonAnimation.SetTime(skeletonAnimation.GetTime() + deltaTime);
-			skeletonAnimation.Refresh(0);
+			skeletonAnimation.InternalRefresh(0);
 			skeletonAnimation.Render(0);
 			Profiler.EndSample();
 		}
