@@ -1,0 +1,19 @@
+{
+    "name": "Spine.Example.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Spine.Editor",
+        "Spine.Example"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

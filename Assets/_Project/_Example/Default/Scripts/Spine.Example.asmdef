@@ -1,0 +1,16 @@
+{
+    "name": "Spine.Example",
+    "rootNamespace": "",
+    "references": [
+        "Spine"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
