@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &239990214
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1880,13 +1880,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1667182767}
+  - component: {fileID: 1667182768}
   m_Layer: 0
   m_Name: Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1667182767
 Transform:
   m_ObjectHideFlags: 0
@@ -1912,6 +1913,18 @@ Transform:
   - {fileID: 1146537165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1667182768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667182766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d7f1bf73db6413fba9ec94738a5549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1671847794
 GameObject:
   m_ObjectHideFlags: 0

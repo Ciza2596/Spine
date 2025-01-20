@@ -5,6 +5,9 @@ namespace Spine.Unity
 {
 	public static class SpineExtension
 	{
+		public static string GetDataId(this SkeletonAnimation skeletonAnimation) =>
+			skeletonAnimation.AnimationState.GetCurrent(0)?.Animation?.Name ?? string.Empty;
+
 		public static bool CheckIsLoop(this SkeletonAnimation skeletonAnimation) =>
 			skeletonAnimation.AnimationState.GetCurrent(0)?.loop ?? false;
 

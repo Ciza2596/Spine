@@ -22,6 +22,7 @@ public class SpinePlayer : MonoBehaviour
 	protected virtual void OnEnable()
 	{
 		SkeletonAnimation.Play(_clip, _isLoop);
+		Debug.Log(SkeletonAnimation.GetDataId());
 	}
 
 	protected virtual void Update()
