@@ -1,3 +1,4 @@
+using Spine.Unity;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -12,26 +13,24 @@ public class SpineSpriteRenderer : MonoBehaviour
 
 	protected RenderTexture _renderTexture;
 
-	protected Mesh Mesh => GetComponentInChildren<MeshFilter>().mesh;
-	protected Material Material => GetComponentInChildren<MeshRenderer>().sharedMaterial;
+	protected SkeletonAnimation SpineAnimation => GetComponentInChildren<SkeletonAnimation>();
+	protected MeshFilter SpineMeshFilter => SpineAnimation.GetComponentInChildren<MeshFilter>();
+	protected MeshRenderer SpineRenderer => SpineAnimation.GetComponentInChildren<MeshRenderer>();
+	
 	protected SpriteRenderer SpriteRenderer => GetComponentInChildren<SpriteRenderer>();
 
 	protected virtual void Awake()
 	{
-		// 創建 RenderTexture & Texture2D
 		_outputTexture = new Texture2D(_textureSize.x, _textureSize.y, TextureFormat.ARGB32, false);
 
-		// 創建 Sprite 並賦值給 SpriteRenderer
 		_sprite = Sprite.Create(_outputTexture, new Rect(0, 0, _textureSize.x, _textureSize.y), new Vector2(0.5f, 0.5f));
 		SpriteRenderer.sprite = _sprite;
 
-		// 初始化 CommandBuffer
 		_commandBuffer = new CommandBuffer { name = "SpineSpriteRenderer" };
 	}
 
 	protected virtual void OnDestroy()
 	{
-		// 釋放 CommandBuffer
 		if (_commandBuffer != null)
 		{
 			_commandBuffer.Release();
@@ -59,7 +58,7 @@ public class SpineSpriteRenderer : MonoBehaviour
 
 	public virtual void Refresh()
 	{
-		if (Mesh == null || Material == null)
+		if (SpineMeshFilter == null || SpineRenderer == null)
 		{
 			Debug.LogError("請確保 Mesh 和 Material 已設定");
 			return;
@@ -93,7 +92,7 @@ public class SpineSpriteRenderer : MonoBehaviour
 
 	protected virtual void DrawCommandBuffer()
 	{
-		_commandBuffer.DrawMesh(Mesh, Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3.one), Material);
+		_commandBuffer.DrawRenderer(SpineRenderer, SpineRenderer.material);
 		Graphics.ExecuteCommandBuffer(_commandBuffer);
 	}
 
