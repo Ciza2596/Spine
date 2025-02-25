@@ -92,7 +92,8 @@ public class SpineSpriteRenderer : MonoBehaviour
 
 	protected virtual void DrawCommandBuffer()
 	{
-		_commandBuffer.DrawRenderer(SpineRenderer, SpineRenderer.material);
+		_commandBuffer.DrawMesh(SpineMeshFilter.mesh, transform.localToWorldMatrix, SpineRenderer.material, 0, -1);
+		// _commandBuffer.DrawRenderer(SpineRenderer, SpineRenderer.material);
 		Graphics.ExecuteCommandBuffer(_commandBuffer);
 	}
 
