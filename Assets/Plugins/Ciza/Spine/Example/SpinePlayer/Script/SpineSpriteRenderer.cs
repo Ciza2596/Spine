@@ -26,7 +26,7 @@ public class SpineSpriteRenderer : MonoBehaviour
 		SpriteRenderer.sprite = _sprite;
 
 		// 初始化 CommandBuffer
-		_commandBuffer = new CommandBuffer { name = "Render SkeletonMesh to Texture" };
+		_commandBuffer = new CommandBuffer { name = "SpineSpriteRenderer" };
 	}
 
 	protected virtual void OnDestroy()
@@ -44,7 +44,7 @@ public class SpineSpriteRenderer : MonoBehaviour
 			RenderTexture.ReleaseTemporary(_renderTexture);
 			_renderTexture = null;
 		}
-		
+
 		if (_outputTexture)
 		{
 			Destroy(_outputTexture);
@@ -65,15 +65,15 @@ public class SpineSpriteRenderer : MonoBehaviour
 			return;
 		}
 
-		PrepareRenderTexture(_textureSize);
+		PrepareRenderTexture();
 		PrepareCommandBuffer();
 		DrawCommandBuffer();
 		DrawOutputTexture();
 	}
 
-	protected virtual void PrepareRenderTexture(Vector2 drawDimensions)
+	protected virtual void PrepareRenderTexture()
 	{
-		var requiredSize = new Vector2Int(Mathf.RoundToInt(drawDimensions.x), Mathf.RoundToInt(drawDimensions.y));
+		var requiredSize = new Vector2Int(Mathf.RoundToInt(_textureSize.x), Mathf.RoundToInt(_textureSize.y));
 		if (CurrentTextureValid())
 			return;
 
